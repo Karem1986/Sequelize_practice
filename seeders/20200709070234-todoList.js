@@ -1,26 +1,34 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+    return await queryInterface.bulkInsert(
       "todoLists",
       [
         {
-          name: "water the plants",
+          name: "George's Work list",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-
         {
-          name: "learn to code",
+          name: "George's Personal list",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
-        }
-      ]
-    )
+        },
+        {
+          name: "Leo's futbol list",
+          userId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("todoLists", null, {});
-  }
+    return await queryInterface.bulkDelete("todoLists", null, {});
+  },
 };
