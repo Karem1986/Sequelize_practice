@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       todoList.associate = function (models) {
         todoList.hasMany(models.todoItem);
-        todoList.belongsTo(models.user); //todo list has a column with user id 
+        todoList.belongsTo(models.user); //todo list has a column with user id//every todolist belongs to an user
       };
     }
   };

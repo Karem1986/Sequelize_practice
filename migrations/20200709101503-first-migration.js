@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn(
       "todoItems",
-      "important",
+      "important", //a column inside TodoItems called 'important 
       { type: Sequelize.BOOLEAN },
       {}
     );

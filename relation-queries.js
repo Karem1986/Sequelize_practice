@@ -12,7 +12,7 @@ const { user, todoItem, todoList, tag } = require("./models"); //exact name of t
 // //Solution line 22-27
 // getUserWithList(1).then(user => console.log("user by id with lists", user));
 
-//Get important TodoItems with the name of the list they belong to 
+//2.Get important TodoItems with the name of the list they belong to 
 // async function importantTodoItems() {
 //     const importantItems = await todoItem.findAll({
 //         where: {
