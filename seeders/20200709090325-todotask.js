@@ -17,6 +17,12 @@ module.exports = {
           deadline: "Sunday",
           createdAt: new Date(),
           updatedAt: new Date(),
+        },
+        {
+          task: "shopping on Sunday",
+          deadline: "Sunday",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         }
       ]
     )

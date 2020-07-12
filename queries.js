@@ -3,6 +3,7 @@ const user = require("./models/user");
 const User = require("./models").user; //the file name in model  
 const TodoItem = require("./models").todoItem; //the name inside the model file should be the same 
 
+//Tasks on querying :https://reader.codaisseur.com/courses/backend-bootcamp/01-databases/querying
 //SOLUTIONS here: https://github.com/Codaisseur/course-content-exercises/blob/master/week-5/sequelize-day2-day3/queries.js
 
 //Get all users:

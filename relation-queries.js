@@ -1,6 +1,6 @@
 
 const { user, todoItem, todoList, tag } = require("./models"); //exact name of the model 
-
+//https://reader.codaisseur.com/courses/backend-bootcamp/02-orm/relations/querying-relations
 // //1. Get one user by id with his lists:
 
 // const { user, todoList } = require("./models");
@@ -43,12 +43,14 @@ const { user, todoItem, todoList, tag } = require("./models"); //exact name of t
 
 // oneUserById(2).then(user => console.log("User with tasks", user))
 
+//Add a query that finds all todoItems with their corresponding tags:
 async function tagFind() {
     const tagforall = await tag.findAll();
     return tagforall.map(user => user.get({ plain: true }));
 }
 tagFind().then(tag1 => console.log('test line 30', tag1))
 
+//this is just to play around finding all users by id by myself:
 async function findUsers() {
     const findUsers = await user.findByPk(2);
     return findUsers.get({ plain: true }); //is not an array users, so we are not mapping over them. 
