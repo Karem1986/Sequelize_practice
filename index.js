@@ -12,70 +12,60 @@ const TodoList = require("./models").TodoList
 
 app.use(express.json());
 
+//To Test your setup add the following route:
+app.post("/echo", (req, res) => {
+    res.json(req.body);
+});
+
 //To test this app:
-//2 and 3. Make a POST request to users with an email and confirm that the data
+//2/3/4 Make a POST request to users with an email and confirm that the data
 //includes ID in the response:
 app.post("/users", async (req, res) => {
     try {
         //must be already an user so the id must be in the response 
         const email = req.body.email;
         if (!email || email === " ") {
-            res.status(400).send("must provide an email address");
+            res.status(400).send("must provide an email address"); //works well
         } else {
-            const user = await User.create(req.body);
+            const user = await User.create(req.body); //creates a new user
             res.json(user);
         }
     } catch (e) {
         console.log(e)
     }
 });
-//4. Create a second user with the same email 
-app.post("/users/email", async (req, res, next) => {
-    try {
-        //try to create an user with the same email  
-        const email = req.body.email
-        if (!email) {
-            res.status(400).send("User not found");
-        } else {
-            const user = await User.create(req.body);
-            res.send(user);
-        }
-    } catch (e) {
-        next(e);
-    }
-})
 
 //5. Add a route definition that will respond to GET requests
 // to /users/:userId. Use the User.findByPk()method along with the userId route parameter. 
 //Fetch the correct user from the database and return it as a JSON response.
-// app.get("/users/userId", async (req, res) => {
-//     try {
-//         const userId = await User.findByPk(req.userId)
-//         if (userId) {
-//             res.status(200).send("User found")
-//         } else {
-//             res.send(404).send("User not found") //logs an error if user id is not found
-//         }
-//     } catch (e) {
-//         next(e)
-//     }
-// })
+app.get("/users/userId", async (req, res) => {
+    try {
+        const userId = await User.findByPk(req.userId)
+        if (userId) {
+            res.status(200).send("User found")
+        } else {
+            res.send(404).send("User not found") //logs an error if user id is not found
+        }
+    } catch (e) {
+        next(e)
+    }
+})
 
 //Updating an user:
-// app.put("/users/:userId", async (req, res, next) => {
-//     try {
-//       const userId = parseInt(req.params.userId);
-//       const userToUpdate = await User.findByPk(userId);
-//       if (!userToUpdate) {
-//         res.status(404).send("User not found");
-//       } else {
-//         const updatedUser = await userToUpdate.update(req.body);
-//         res.json(updatedUser);
-//       }
-//     } catch (e) {
-//       next(e);
-//     }
-//   });
+app.put("/users/:userId", async (req, res, next) => {
+    try {
+        const userId = parseInt(req.params.userId);
+        const userToUpdate = await User.findByPk(userId);
+        if (!userToUpdate) {
+            res.status(404).send("User not found");
+        } else {
+            const updatedUser = await userToUpdate.update(req.body);
+            res.json(updatedUser);
+        }
+    } catch (e) {
+        next(e);
+    }
+});
 
 //Implement the create and update actions on todoLists 
 //Implement at GET endpoint for all todoLists:
