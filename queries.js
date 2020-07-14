@@ -21,7 +21,6 @@ async function getAllITems() {
 // getAllITems().then(items => console.log("these are my items", items))
 
 //Searches for an user by primary key
-
 async function getPrimaryUser(key) {
     const userKey = await User.findByPk(key);
     return userKey ? userKey.get({ plain: true }) : "Not found"
