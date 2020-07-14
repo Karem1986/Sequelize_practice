@@ -1,20 +1,21 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+const fs = require('fs'); //import the files service module of node
+const path = require('path'); //we are going to do things with file locations
+const Sequelize = require('sequelize'); //import sequelize
+const basename = path.basename(__filename); //where are these files located
+const env = process.env.NODE_ENV || 'development'; //what is our environment? is it production, developemnt or test?
+const config = require(__dirname + '/../config/config.json')[env]; //get the configuration file and the object for it
+const db = {}; //create a db object --> empty to start 
 
 let sequelize;
+//Connect to our db using the config object
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   sequelize = new Sequelize(config.url, config);
 }
-
+//What files are in the model folder? 
 fs
   .readdirSync(__dirname)
   .filter(file => {

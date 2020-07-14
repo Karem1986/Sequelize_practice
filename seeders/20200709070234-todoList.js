@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           name: "George's Work list",
-          userId: 1,
+          userId: 1, //<== as we have an association with todoLists, we add here the values for the column userId. 
           createdAt: new Date(),
           updatedAt: new Date(),
         },

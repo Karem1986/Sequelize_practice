@@ -18,9 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   todoList.init({
-    name: DataTypes.STRING,
-    email: { type: DataTypes.STRING, unique: true },
-    phone: DataTypes.INTEGER
+    name: DataTypes.STRING, //It only has name as attribute so it has to match with the migration file too
+
   }, {
     sequelize,
     modelName: 'todoList',
