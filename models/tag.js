@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       tag.belongsToMany(models.todoItem, { //related to item tag is like the child 
-        through: "ItemTags",
-        foreignKey: "tagId"
+        through: "ItemTags", //as in the migration file or table in QueryPie
+        foreignKey: "tagId" //the name in the column
       })
     }
   };

@@ -20,20 +20,20 @@ app.post("/echo", (req, res) => {
 //To test this app:
 //2/3/4 Make a POST request to users with an email and confirm that the data
 //includes ID in the response:
-// app.post("/users", async (req, res) => {
-//     try {
-//         //must be already an user so the id must be in the response 
-//         const email = req.body.email;
-//         if (!email || email === " ") {
-//             res.status(400).send("must provide an email address"); //works well
-//         } else {
-//             const user = await User.create(req.body); //creates a new user
-//             res.json(user);
-//         }
-//     } catch (e) {
-//         console.log(e)
-//     }
-// });
+app.post("/users", async (req, res) => {
+    try {
+        //must be already an user so the id must be in the response 
+        const email = req.body.email;
+        if (!email || email === " ") {
+            res.status(400).send("must provide an email address"); //works well
+        } else {
+            const user = await User.create(req.body); //creates a new user
+            res.json(user);
+        }
+    } catch (e) {
+        console.log(e)
+    }
+});
 
 //5. Add a route definition that will respond to GET requests
 // to /users/:userId. Use the User.findByPk()method along with the userId route parameter. 
