@@ -46,3 +46,5 @@ async function importantTodoItems() {
 }
 
 importantTodoItems().then(smth => console.log("Testing important items", smth))
+
+//EXAMPLE CODE FROM REIN ABOUT THIS PART HERE: https://github.com/Reinoptland/sequelize-examples/commits/master
