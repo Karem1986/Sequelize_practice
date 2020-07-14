@@ -1,2 +1,1 @@
-release: bash post-release.sh
-npx sequelize-cli db:migrate
+release: npx sequelize-cli db:migrate
